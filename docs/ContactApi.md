@@ -62,7 +62,7 @@ No authorization required
 
 
 # **contact_track_post**
-> TrackResponse contact_track_post(api_key, team_id, email, tag)
+> TrackResponse contact_track_post(api_key, team_id, email, track_details)
 
 Add tracking info using tags to a contact
 
@@ -81,12 +81,12 @@ team_id = "team_id_example" # String |
 
 email = "email_example" # String | 
 
-tag = "tag_example" # String | 
+track_details = SwaggerClient::TrackRequest.new # TrackRequest | Track Details
 
 
 begin
   #Add tracking info using tags to a contact
-  result = api_instance.contact_track_post(api_key, team_id, email, tag)
+  result = api_instance.contact_track_post(api_key, team_id, email, track_details)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ContactApi->contact_track_post: #{e}"
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
  **api_key** | **String**|  | 
  **team_id** | **String**|  | 
  **email** | **String**|  | 
- **tag** | **String**|  | 
+ **track_details** | [**TrackRequest**](TrackRequest.md)| Track Details | 
 
 ### Return type
 
