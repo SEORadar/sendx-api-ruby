@@ -193,6 +193,7 @@ api_key = "api_key_example" # String |
 team_id = "team_id_example" # String | 
 
 contact_details = SwaggerClient::ContactRequest.new # ContactRequest | Contact details
+contact_details.email = "rubyapi@sendx.io"
 
 
 begin
@@ -201,6 +202,20 @@ begin
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ContactApi->contact_identify_post: #{e}"
+end
+
+
+track_details = SwaggerClient::TrackRequest.new # TrackRequest | Track details
+track_details.add_tags = ["paid user", "startup plan"]
+track_details.remove_tags = ["trial user"]
+
+
+begin
+  #Track a contact
+  result = api_instance.contact_track_post(api_key, team_id, "rubyapi@sendx.io", track_details)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ContactApi->contact_track_post: #{e}"
 end
 
 ```
