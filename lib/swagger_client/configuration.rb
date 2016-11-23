@@ -134,7 +134,7 @@ module SwaggerClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
+      @scheme = 'https'
       @host = 'app.sendx.io'
       @base_path = '/api/v1'
       @api_key = {}
